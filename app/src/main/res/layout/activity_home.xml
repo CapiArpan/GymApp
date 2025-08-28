@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMonday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lunes" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTuesday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Martes" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnWednesday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Miércoles" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnThursday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Jueves" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFriday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Viernes" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSaturday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sábado" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSunday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Domingo" />
+
+    </LinearLayout>
+</ScrollView>
