@@ -1,0 +1,7 @@
+<!-- app/src/main/res/drawable/bg_sunday_gradient.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <gradient
+        android:startColor="#FFCF71"
+        android:endColor="#FFA17F"
+        android:angle="270"/>
+</shape>

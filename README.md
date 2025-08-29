@@ -22,7 +22,6 @@ Instrucciones de uso
 
 
 se subio al master :
-## 🧪 Login con Firebase
 
 - Validación de campos de ingreso: Usuario = profesor / Contraseña = buentrabajo7
 - Animación Lottie en pantalla de login
