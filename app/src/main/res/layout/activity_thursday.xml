@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FAF5FB">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Rutinas del Jueves"
-        android:textSize="18sp"/>
-</LinearLayout>
+    <ImageView
+        android:id="@+id/imgRoutine"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="rutina del jueves"
+        android:scaleType="fitXY"
+        android:src="@drawable/thursday_routine"
+        tools:srcCompat="@drawable/thursday_routine" />
+
+    <Button
+        android:id="@+id/btnBackToMenu"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="117dp"
+        android:backgroundTint="#9C27B0"
+        android:text="Atrás"
+        android:textColor="#FFFFFF" />
+
+</FrameLayout>

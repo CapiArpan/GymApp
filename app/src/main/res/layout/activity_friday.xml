@@ -1,14 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Rutinas del Viernes"
-        android:textSize="18sp"/>
-</LinearLayout>
+        android:orientation="vertical">
+
+        <!-- Título principal -->
+        <TextView
+            android:id="@+id/title_upper_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Viernes – Upper Body"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Warm-up -->
+        <TextView
+            android:id="@+id/title_warmup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Warm-up (5 min)"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/warmup_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="∙ Rotación hombros con banda – 2 rondas\n   10 flexiones rodillas + 20 jumping jacks"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Ejercicios -->
+        <TextView
+            android:id="@+id/title_exercises"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ejercicios"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <!-- Hombros -->
+        <TextView
+            android:id="@+id/ex_shoulder_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. Hombros"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/ex_shoulder_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Press militar (barra o mancuernas)\n4×8–10 · Desc 60s"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Tríceps -->
+        <TextView
+            android:id="@+id/ex_triceps_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. Tríceps"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/ex_triceps_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fondos en banco o paralelas\n3×10–12 · Desc 45s"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Core -->
+        <TextView
+            android:id="@+id/ex_core_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. Core"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/ex_core_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Plancha + Mountain climbers\n3×30s + 20 · Desc 45s"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Nutrición recomendada -->
+        <TextView
+            android:id="@+id/title_nutrition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nutrición recomendada"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/nutrition_economica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• Económica: Pan integral + huevo + leche"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/nutrition_protein"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• Proteína: Pavo + arroz + entrenar"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/nutrition_vegetarian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• Vegetariana: Tofu + ensalada fresca + quinoa"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Duración y descanso -->
+        <TextView
+            android:id="@+id/title_timing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Timing"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/timing_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Duración: 50–65 min"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/timing_rest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descanso entre series: 45–90 s"
+            android:textSize="16sp"
+            android:layout_marginBottom="24dp"/>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Atras" />
+
+    </LinearLayout>
+</ScrollView>

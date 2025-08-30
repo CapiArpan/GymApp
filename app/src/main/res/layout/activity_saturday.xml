@@ -1,14 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Rutinas del Sabado"
-        android:textSize="18sp"/>
-</LinearLayout>
+        android:orientation="vertical">
+
+        <!-- Título principal -->
+        <TextView
+            android:id="@+id/title_lower_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sábado – Lower Body"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Warm-up -->
+        <TextView
+            android:id="@+id/title_warmup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Warm-up (5 min)"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/warmup_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="∙ Trote en máquina + 20 jumping jacks"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Ejercicios -->
+        <TextView
+            android:id="@+id/title_exercises"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ejercicios"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <!-- Flexores de la cadera -->
+        <TextView
+            android:id="@+id/ex_hip_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. Flexores de la cadera"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/ex_hip_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Abducción en máquina\n4×8–10 · Desc 90s"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Pantorrilla -->
+        <TextView
+            android:id="@+id/ex_calf_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. Pantorrilla"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/ex_calf_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Elevación de talones\n3–4×10–12 · Desc 60–90s"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Cuádriceps -->
+        <TextView
+            android:id="@+id/ex_quad_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. Cuádriceps"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/ex_quad_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Extensión de cuádriceps\n4×8 · Desc 45s"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Timing -->
+        <TextView
+            android:id="@+id/title_timing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Timing"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/timing_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Duración: 50–65 min"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Botón de regreso -->
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Atrás" />
+
+    </LinearLayout>
+</ScrollView>
