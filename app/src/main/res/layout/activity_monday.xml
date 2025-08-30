@@ -1,14 +1,259 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FAF5FB"
+    android:padding="16dp"
+    android:fillViewport="true">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Rutinas del Lunes"
-        android:textSize="18sp"/>
-</LinearLayout>
+        android:orientation="vertical">
+
+        <!-- Título principal -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lunes · Upper"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:layout_marginBottom="4dp"/>
+
+        <!-- Subtítulo -->
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pecho · Espalda · Hombros · 50-65 min"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Calentamiento -->
+        <TextView
+            android:id="@+id/tvWarmupTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Calentamiento (5 min)"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tvWarmupDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trote en maquina + 20 jumping jacks"
+            android:textSize="14sp"
+            android:textColor="#000000"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Pecho -->
+        <TextView
+            android:id="@+id/tvChestTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pecho"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tvChestExercise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Press de banca"
+            android:textSize="14sp"
+            android:textColor="#000000"
+            android:layout_marginBottom="2dp"/>
+
+        <TextView
+            android:id="@+id/tvChestSets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4×8-10 · Desc 90s"
+            android:textSize="12sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Espalda -->
+        <TextView
+            android:id="@+id/tvBackTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Espalda"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tvBackExercise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dominadas o jalón al pecho"
+            android:textSize="14sp"
+            android:textColor="#000000"
+            android:layout_marginBottom="2dp"/>
+
+        <TextView
+            android:id="@+id/tvBackSets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4×8-10 · Desc 90s"
+            android:textSize="12sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Hombros -->
+        <TextView
+            android:id="@+id/tvShouldersTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hombros"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tvShouldersExercise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Press militar"
+            android:textSize="14sp"
+            android:textColor="#000000"
+            android:layout_marginBottom="2dp"/>
+
+        <TextView
+            android:id="@+id/tvShouldersSets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3×10-12 · Desc 60s"
+            android:textSize="12sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Extras -->
+        <TextView
+            android:id="@+id/tvExtrasTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Extras"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tvExtrasDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Elevaciones laterales 3×15 · Face pulls 3×15"
+            android:textSize="14sp"
+            android:textColor="#000000"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Alimentación Recomendada -->
+        <TextView
+            android:id="@+id/tvNutritionTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Alimentacion Recomendada"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Económica -->
+        <TextView
+            android:id="@+id/tvEcoTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Económica"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginBottom="2dp"/>
+
+        <TextView
+            android:id="@+id/tvEcoDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pan integral + huevo duro · leche"
+            android:textSize="12sp"
+            android:textColor="#000000"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Muscle -->
+        <TextView
+            android:id="@+id/tvMuscleTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Muscle"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginBottom="2dp"/>
+
+        <TextView
+            android:id="@+id/tvMuscleDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pavo · arroz integral · batido post entreno"
+            android:textSize="12sp"
+            android:textColor="#000000"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Vegetariana -->
+        <TextView
+            android:id="@+id/tvVegTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Vegetariana"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginBottom="2dp"/>
+
+        <TextView
+            android:id="@+id/tvVegDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tofu salteado · quinoa · ensalada fresca"
+            android:textSize="12sp"
+            android:textColor="#000000"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Duración -->
+        <TextView
+            android:id="@+id/tvDuration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Duración ≈ 50-65 min\nDescansos 45-90s"
+            android:textSize="12sp"
+            android:textColor="#666666"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Botón Atrás -->
+        <Button
+            android:id="@+id/btnBackToMenu"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:backgroundTint="#9C27B0"
+            android:text="Atrás"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"/>
+
+    </LinearLayout>
+</ScrollView>
