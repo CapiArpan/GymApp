@@ -1,55 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_home_gradient"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:padding="16dp"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnMonday"
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="24dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Lunes" />
+            android:layout_height="wrap_content">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnTuesday"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Martes" />
+            <!-- Animación motivacional -->
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/homeAnimation"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                app:lottie_rawRes="@raw/gym_home_animation"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnWednesday"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Miércoles" />
+            <!-- Botones de días -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMonday"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lunes"
+                android:layout_marginTop="8dp"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnThursday"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Jueves" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTuesday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Martes"
+                android:layout_marginTop="8dp"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnFriday"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Viernes" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnWednesday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Miércoles"
+                android:layout_marginTop="8dp"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSaturday"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sábado" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnThursday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jueves"
+                android:layout_marginTop="8dp"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSunday"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Domingo" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnFriday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Viernes"
+                android:layout_marginTop="8dp"/>
 
-    </LinearLayout>
-</ScrollView>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSaturday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sábado"
+                android:layout_marginTop="8dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSunday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Domingo"
+                android:layout_marginTop="8dp"/>
+
+            <!-- Botón de chat con el profesor -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnChat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chatear con el profesor"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="#4CAF50"
+                android:textColor="@android:color/white"/>
+
+            <!-- Botón de salir -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cerrar sesión"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="#F44336"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
