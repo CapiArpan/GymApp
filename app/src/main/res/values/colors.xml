@@ -2,4 +2,19 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!-- Primarios -->
+    <color name="md_primary">#6A1B9A</color>      <!-- Purple 700 -->
+    <color name="md_primary_variant">#4A148C</color>
+    <color name="md_secondary">#00838F</color>    <!-- Teal 700 -->
+
+    <!-- Superficies y fondos -->
+    <color name="md_surface">#FFFFFF</color>
+    <color name="md_on_surface">#212121</color>
+    <color name="md_background_start">#6A1B9A</color>
+    <color name="md_background_end">#00838F</color>
+
+    <!-- Textos y ripples -->
+    <color name="md_on_primary">#FFFFFF</color>
+    <color name="ripple_color">#33FFFFFF</color>  <!-- blanco con 20% opacidad -->
+    <color name="md_secondary_variant">#005662</color>
 </resources>

@@ -3,54 +3,73 @@ package com.unidad.gymapp;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.android.material.button.MaterialButton;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.progressindicator.LinearProgressIndicator;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private final int[] btnIds = {
-            R.id.btnMonday,  R.id.btnTuesday,   R.id.btnWednesday,
-            R.id.btnThursday, R.id.btnFriday,   R.id.btnSaturday,
-            R.id.btnSunday
-    };
-
-    private final Class<?>[] targets = {
-            MondayActivity.class, TuesdayActivity.class, WednesdayActivity.class,
-            ThursdayActivity.class, FridayActivity.class, SaturdayActivity.class,
-            SundayActivity.class
-    };
+    private CollapsingToolbarLayout collapsingToolbar;
+    private LottieAnimationView animationView;
+    private RecyclerView rvDays;
+    private FloatingActionButton fabChat;
+    private LinearProgressIndicator progressWeekly;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        // Navegación por días
-        for (int i = 0; i < btnIds.length; i++) {
-            MaterialButton btn = findViewById(btnIds[i]);
-            final Class<?> dest = targets[i];
-            btn.setOnClickListener(v ->
-                    startActivity(new Intent(HomeActivity.this, dest))
-            );
-        }
+        // Toolbar + Collapsing title
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        // Botón de chat con el profesor (WhatsApp)
-        MaterialButton btnChat = findViewById(R.id.btnChat);
-        btnChat.setOnClickListener(v -> {
-            String phone = "+56912345678"; // ← tu número real para pruebas
-            String message = "Hola profesor, tengo una consulta sobre mi rutina.";
-            String url = "https://wa.me/" + phone.replace("+", "") + "?text=" + Uri.encode(message);
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(url));
-            startActivity(intent);
-        });
+        collapsingToolbar = findViewById(R.id.collapseToolbar);
 
-        // Botón de cerrar sesión
-        MaterialButton btnLogout = findViewById(R.id.btnLogout);
-        btnLogout.setOnClickListener(v -> {
-            Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
+        animationView = findViewById(R.id.homeAnimation);
+        animationView.setSpeed(1.2f);
+
+        // Progreso Semanal
+        progressWeekly = findViewById(R.id.progressWeekly);
+        progressWeekly.setMax(100);
+        progressWeekly.setProgress(45, true); // Ejemplo: 45%
+
+        // RecyclerView de días
+        rvDays = findViewById(R.id.rvDays);
+        rvDays.setLayoutManager(new LinearLayoutManager(this));
+        rvDays.setAdapter(new DayAdapter(this, getDayList()));
+
+        // FAB de chat
+        fabChat = findViewById(R.id.fabChat);
+        fabChat.setOnClickListener(v -> {
+            String phone = "+56977193187";
+            String msg = "Hola profe, necesito ayuda con mi rutina.";
+            String url = "https://wa.me/"
+                    + phone.replace("+", "")
+                    + "?text=" + Uri.encode(msg);
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
         });
+    }
+
+    private List<Day> getDayList() {
+        List<Day> days = new ArrayList<>();
+        days.add(new Day("Lunes", MondayActivity.class));
+        days.add(new Day("Martes", TuesdayActivity.class));
+        days.add(new Day("Miércoles", WednesdayActivity.class));
+        days.add(new Day("Jueves", ThursdayActivity.class));
+        days.add(new Day("Viernes", FridayActivity.class));
+        days.add(new Day("Sábado", SaturdayActivity.class));
+        days.add(new Day("Domingo", SundayActivity.class));
+        return days;
     }
 }

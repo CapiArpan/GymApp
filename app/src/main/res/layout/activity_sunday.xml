@@ -6,16 +6,21 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_sunday_gradient">
 
-    <!-- Toolbar -->
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbarSunday"
+    <!-- AppBar con Toolbar -->
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@android:color/transparent"
-        app:title="Domingo Libre"
-        app:titleTextColor="@android:color/white"
-        app:navigationIcon="@drawable/ic_arrow_back_24"/>
+        android:background="?attr/colorPrimary">
 
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarSunday"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:title="Domingo Libre"
+            app:titleTextColor="@android:color/white"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Scrollable content -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -109,9 +114,9 @@
                 android:id="@+id/btnStartWeek"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Comenzar nueva semana"
                 android:layout_marginTop="24dp"
-                android:backgroundTint="#FFA17F"
+                android:backgroundTint="#212121"
+                android:text="Comenzar nueva semana"
                 android:textColor="#FFFFFF"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

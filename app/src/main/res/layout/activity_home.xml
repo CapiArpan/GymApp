@@ -2,100 +2,130 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/bg_home_gradient"
+    android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_home_gradient">
 
-    <androidx.core.widget.NestedScrollView
+    <!-- AppBar con CollapsingToolbar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="280dp"
+        android:background="@android:color/transparent">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapseToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginStart="24dp"
+            app:expandedTitleMarginBottom="16dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:titleEnabled="false">
+
+            <!-- Fondo animado y texto -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_collapseMode="parallax">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/homeAnimation"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:lottie_rawRes="@raw/gym_home_animation"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"/>
+
+                <TextView
+                    android:id="@+id/tvWelcome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="¡Vamos con todo hoy!"
+                    android:textColor="@color/md_on_primary"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"/>
+
+            </FrameLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:title="Mi Rutina"
+                app:titleTextColor="@color/md_on_primary"
+                app:layout_collapseMode="pin"/>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Contenido desplazable -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/content_scrolling"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:orientation="vertical"
-            android:padding="24dp"
+            android:padding="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!-- Animación motivacional -->
-            <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/homeAnimation"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_gravity="center"
-                app:lottie_rawRes="@raw/gym_home_animation"
-                app:lottie_autoPlay="true"
-                app:lottie_loop="true"/>
-
-            <!-- Botones de días -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnMonday"
-                style="@style/Widget.MaterialComponents.Button"
+            <!-- Tarjeta: Progreso Semanal -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lunes"
-                android:layout_marginTop="8dp"/>
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/md_surface">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnTuesday"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Martes"
-                android:layout_marginTop="8dp"/>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnWednesday"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Miércoles"
-                android:layout_marginTop="8dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Progreso Semanal"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/md_on_surface"/>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnThursday"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Jueves"
-                android:layout_marginTop="8dp"/>
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/progressWeekly"
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp"
+                        android:layout_marginTop="12dp"
+                        android:progress="45"
+                        android:max="100"
+                        app:indicatorColor="?attr/colorSecondary"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnFriday"
+            <!-- RecyclerView: Días de la Semana -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvDays"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Viernes"
-                android:layout_marginTop="8dp"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnSaturday"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Sábado"
-                android:layout_marginTop="8dp"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnSunday"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Domingo"
-                android:layout_marginTop="8dp"/>
-
-            <!-- Botón de chat con el profesor -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnChat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Chatear con el profesor"
-                android:layout_marginTop="24dp"
-                android:backgroundTint="#4CAF50"
-                android:textColor="@android:color/white"/>
-
-            <!-- Botón de salir -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnLogout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Cerrar sesión"
-                android:layout_marginTop="12dp"
-                android:backgroundTint="#F44336"
-                android:textColor="@android:color/white"/>
+                android:layout_height="wrap_content"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <!-- FAB vibrante anclado al contenido -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabChat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Chatear con profesor"
+        app:srcCompat="@drawable/ic_chat"
+        app:backgroundTint="?attr/colorSecondary"
+        app:layout_anchor="@id/content_scrolling"
+        app:layout_anchorGravity="bottom|end"
+        app:rippleColor="@color/ripple_color"
+        android:layout_margin="16dp"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
