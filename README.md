@@ -33,3 +33,17 @@ correspondiente que les toco.
 - luz: miercoles y jueves.
 - Said: viernes y sabado.
 atte Arpan/Byron Carrasco.
+
+Cambio de ícono de la aplicación
+
+Se actualizó el ícono de la app para personalizarla y diferenciarla de la versión por defecto de Android Studio.
+
+Pasos realizados:
+
+Se generó un Launcher Icon con Image Asset Studio (res > New > Image Asset).
+
+Se agregó el nuevo ícono en las carpetas mipmap-....
+
+Se actualizó el AndroidManifest.xml para usarlo:
+
+en la rama feat/kevin/cambio_de_icono
