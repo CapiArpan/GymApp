@@ -1,127 +1,279 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:background="@drawable/bg_sunday_gradient">
 
-    <LinearLayout
+    <!-- AppBar -->
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary">
 
-        <!-- Título principal -->
-        <TextView
-            android:id="@+id/title_lower_day"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sábado – Lower Body"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="16dp"/>
-
-        <!-- Warm-up -->
-        <TextView
-            android:id="@+id/title_warmup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Warm-up (5 min)"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
-
-        <TextView
-            android:id="@+id/warmup_details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="∙ Trote en máquina + 20 jumping jacks"
-            android:textSize="16sp"
-            android:layout_marginBottom="16dp"/>
-
-        <!-- Ejercicios -->
-        <TextView
-            android:id="@+id/title_exercises"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ejercicios"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
-
-        <!-- Flexores de la cadera -->
-        <TextView
-            android:id="@+id/ex_hip_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1. Flexores de la cadera"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
-
-        <TextView
-            android:id="@+id/ex_hip_details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Abducción en máquina\n4×8–10 · Desc 90s"
-            android:textSize="16sp"
-            android:layout_marginBottom="12dp"/>
-
-        <!-- Pantorrilla -->
-        <TextView
-            android:id="@+id/ex_calf_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2. Pantorrilla"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/ex_calf_details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Elevación de talones\n3–4×10–12 · Desc 60–90s"
-            android:textSize="16sp"
-            android:layout_marginBottom="12dp"/>
-
-        <!-- Cuádriceps -->
-        <TextView
-            android:id="@+id/ex_quad_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3. Cuádriceps"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/ex_quad_details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Extensión de cuádriceps\n4×8 · Desc 45s"
-            android:textSize="16sp"
-            android:layout_marginBottom="16dp"/>
-
-        <!-- Timing -->
-        <TextView
-            android:id="@+id/title_timing"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Timing"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/timing_duration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Duración: 50–65 min"
-            android:textSize="16sp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="24dp"/>
-
-        <!-- Botón de regreso -->
-        <Button
-            android:id="@+id/btn_back"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarSaturday"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Atrás" />
+            android:layout_height="match_parent"
+            app:title="Sábado – Lower Body"
+            app:titleTextColor="@android:color/white"/>
+    </com.google.android.material.appbar.AppBarLayout>
 
-    </LinearLayout>
-</ScrollView>
+    <!-- Scrollable Content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Warm-up Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@android:color/white">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="Warm-up (5 min)"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#212121"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <EditText
+                        android:id="@+id/etWarmup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Escribe o edita los ejercicios..."
+                        android:inputType="textMultiLine"
+                        android:lines="3"
+                        android:gravity="top"
+                        android:background="@android:drawable/edit_text"
+                        android:padding="8dp"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Ejercicios Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@android:color/white">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="Ejercicios"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#212121"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <!-- Flexores de la cadera -->
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp">
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            app:lottie_rawRes="@raw/rest_day_animation"
+                            app:lottie_autoPlay="true"
+                            app:lottie_loop="true"/>
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp">
+                            <TextView
+                                android:text="1. Flexores de la cadera"
+                                android:textStyle="bold"
+                                android:textSize="16sp"
+                                android:textColor="#212121"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                            <EditText
+                                android:id="@+id/etHip"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Escribe o edita los ejercicios..."
+                                android:inputType="textMultiLine"
+                                android:lines="3"
+                                android:gravity="top"
+                                android:background="@android:drawable/edit_text"
+                                android:padding="8dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Pantorrilla -->
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp">
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            app:lottie_rawRes="@raw/rest_day_animation"
+                            app:lottie_autoPlay="true"
+                            app:lottie_loop="true"/>
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp">
+                            <TextView
+                                android:text="2. Pantorrilla"
+                                android:textStyle="bold"
+                                android:textSize="16sp"
+                                android:textColor="#212121"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                            <EditText
+                                android:id="@+id/etCalf"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Escribe o edita los ejercicios..."
+                                android:inputType="textMultiLine"
+                                android:lines="3"
+                                android:gravity="top"
+                                android:background="@android:drawable/edit_text"
+                                android:padding="8dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Cuádriceps -->
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp">
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            app:lottie_rawRes="@raw/rest_day_animation"
+                            app:lottie_autoPlay="true"
+                            app:lottie_loop="true"/>
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp">
+                            <TextView
+                                android:text="3. Cuádriceps"
+                                android:textStyle="bold"
+                                android:textSize="16sp"
+                                android:textColor="#212121"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                            <EditText
+                                android:id="@+id/etQuad"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Escribe o edita los ejercicios..."
+                                android:inputType="textMultiLine"
+                                android:lines="3"
+                                android:gravity="top"
+                                android:background="@android:drawable/edit_text"
+                                android:padding="8dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Nutrición + Timing Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@android:color/white">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- Nutrición -->
+                    <TextView
+                        android:text="Nutrición recomendada"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#212121"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <EditText
+                        android:id="@+id/etNutrition"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Escribe o edita los consejos..."
+                        android:inputType="textMultiLine"
+                        android:lines="4"
+                        android:gravity="top"
+                        android:background="@android:drawable/edit_text"
+                        android:padding="8dp"
+                        android:layout_marginTop="8dp"/>
+
+                    <!-- Timing -->
+                    <TextView
+                        android:text="Timing"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#212121"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"/>
+
+                    <EditText
+                        android:id="@+id/etTiming"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Duración entrenamiento..."
+                        android:inputType="textMultiLine"
+                        android:lines="3"
+                        android:gravity="top"
+                        android:background="@android:drawable/edit_text"
+                        android:padding="8dp"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!-- Botón para volver al Home -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBackHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="#212121"
+                android:text="Atrás"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
