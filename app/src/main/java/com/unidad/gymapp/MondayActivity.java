@@ -1,13 +1,12 @@
 package com.unidad.gymapp;
 
 import android.content.Intent;
-import android.graphics.Typeface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 public class MondayActivity extends AppCompatActivity {
 
@@ -23,6 +22,10 @@ public class MondayActivity extends AppCompatActivity {
 
         // Configurar los textos según el día lunes
         setupMondayContent();
+
+        // Registrar que el lunes fue completado
+        SharedPreferences prefs = getSharedPreferences("ProgressPrefs", MODE_PRIVATE);
+        prefs.edit().putBoolean("lunes_completado", true).apply();
     }
 
     private void setupMondayContent() {
@@ -50,7 +53,6 @@ public class MondayActivity extends AppCompatActivity {
         TextView tvVegDesc = findViewById(R.id.tvVegDesc);
         TextView tvDuration = findViewById(R.id.tvDuration);
 
-        // Configurar contenido para el lunes
         tvTitle.setText("Lunes · Upper");
         tvSubtitle.setText("Pecho · Espalda · Hombros · 50-65 min");
         tvWarmupTitle.setText("Calentamiento (5 min)");
@@ -78,10 +80,7 @@ public class MondayActivity extends AppCompatActivity {
 
     private void navigateHome() {
         Intent intent = new Intent(this, HomeActivity.class);
-        intent.addFlags(
-                Intent.FLAG_ACTIVITY_CLEAR_TOP |
-                        Intent.FLAG_ACTIVITY_SINGLE_TOP
-        );
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
         finish();
     }

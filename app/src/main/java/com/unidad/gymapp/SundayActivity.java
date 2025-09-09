@@ -30,10 +30,16 @@ public class SundayActivity extends AppCompatActivity {
         etNutrition  = findViewById(R.id.etNutrition);
         btnStartWeek = findViewById(R.id.btnStartWeek);
 
+        // SharedPreferences para contenido editable
         prefs = getSharedPreferences("SundayPrefs", MODE_PRIVATE);
+
         // Cargar guardado o defecto
         etTips.setText(prefs.getString("tips", getDefaultTips()));
         etNutrition.setText(prefs.getString("nutri", getDefaultNutri()));
+
+        // ✅ Registrar progreso del domingo como completado
+        SharedPreferences progressPrefs = getSharedPreferences("ProgressPrefs", MODE_PRIVATE);
+        progressPrefs.edit().putBoolean("domingo_completado", true).apply();
 
         btnStartWeek.setOnClickListener(v -> {
             // Guardar cambios
@@ -70,7 +76,7 @@ public class SundayActivity extends AppCompatActivity {
 
     private String getDefaultNutri() {
         return "Desayuno: Batido de proteínas + avena con frutas.\n" +
-                "Almuerzo: Ensalada con pollo y aguacate.\n" +
+                "Almuerzo: Ensalada con pollo y palta.\n" +
                 "Merienda: Yogur griego + semillas de chía.\n" +
                 "Cena: Pescado a la plancha con verduras al vapor.";
     }

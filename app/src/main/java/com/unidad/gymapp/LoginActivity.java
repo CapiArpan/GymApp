@@ -1,6 +1,7 @@
 package com.unidad.gymapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,8 +27,12 @@ public class LoginActivity extends AppCompatActivity {
             String pass = etPassword.getText() != null ? etPassword.getText().toString() : "";
 
             if (user.equals("profesor") && pass.equals("buentrabajo7")) {
+                SharedPreferences prefs = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
+                prefs.edit().putBoolean("isLoggedIn", true).apply();
+
                 startActivity(new Intent(this, HomeActivity.class));
                 finish();
+                return;
             } else {
                 Toast.makeText(this,
                         "Usuario o contraseña incorrectos",
