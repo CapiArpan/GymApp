@@ -36,6 +36,8 @@
             android:name=".SaturdayActivity"/>
         <activity
             android:name=".SundayActivity"/>
+        <activity
+            android:name=".RegisterActivity"/>
 
     </application>
 </manifest>
