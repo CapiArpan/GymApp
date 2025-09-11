@@ -47,3 +47,25 @@ Se agregó el nuevo ícono en las carpetas mipmap-....
 Se actualizó el AndroidManifest.xml para usarlo:
 
 en la rama feat/kevin/cambio_de_icono
+
+Registro de Usuarios
+
+En la app incluí una pantalla de registro donde puedo ingresar los datos personales
+
+Campos del formulario:
+
+Nombre, correo y teléfono
+
+Fecha de nacimiento
+
+Peso y altura
+
+Género
+
+Objetivo fitness
+
+Selección de entrenador (con teléfono asociado)
+
+Contraseña y confirmación
+
+en la rama feat/kevin/creacion_register

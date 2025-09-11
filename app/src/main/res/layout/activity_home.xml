@@ -55,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
-                app:title="Mi Rutina"
+                app:title="Mi Rutina Semanal"
                 app:titleTextColor="@color/md_on_primary"
                 app:layout_collapseMode="pin"/>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -113,6 +113,16 @@
                 android:id="@+id/rvDays"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cerrar sesión"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="?attr/colorError"
+                android:textColor="@android:color/white"/>
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

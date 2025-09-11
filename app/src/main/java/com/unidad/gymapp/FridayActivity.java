@@ -35,7 +35,7 @@ public class FridayActivity extends AppCompatActivity {
         etTiming    = findViewById(R.id.etTiming);
         btnBackHome = findViewById(R.id.btnBackHome);
 
-        // SharedPreferences
+        // SharedPreferences para contenido editable
         prefs = getSharedPreferences("FridayPrefs", MODE_PRIVATE);
 
         // Cargar datos guardados o valores por defecto
@@ -46,7 +46,11 @@ public class FridayActivity extends AppCompatActivity {
         etNutrition.setText(prefs.getString("nutrition", getDefaultNutrition()));
         etTiming.setText(prefs.getString("timing", getDefaultTiming()));
 
-        // Guardar y volver al Home
+        // ✅ Registrar progreso del viernes como completado
+        SharedPreferences progressPrefs = getSharedPreferences("ProgressPrefs", MODE_PRIVATE);
+        progressPrefs.edit().putBoolean("viernes_completado", true).apply();
+
+        // Guardar contenido editable y volver al Home
         btnBackHome.setOnClickListener(v -> {
             prefs.edit()
                     .putString("warmup", etWarmup.getText().toString())

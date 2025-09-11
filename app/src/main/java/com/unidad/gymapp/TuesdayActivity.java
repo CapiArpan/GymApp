@@ -1,6 +1,7 @@
 package com.unidad.gymapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,6 +22,10 @@ public class TuesdayActivity extends AppCompatActivity {
 
         // Configurar los textos según el día martes
         setupTuesdayContent();
+
+        // ✅ Registrar progreso del martes como completado
+        SharedPreferences progressPrefs = getSharedPreferences("ProgressPrefs", MODE_PRIVATE);
+        progressPrefs.edit().putBoolean("martes_completado", true).apply();
     }
 
     private void setupTuesdayContent() {
@@ -48,7 +53,6 @@ public class TuesdayActivity extends AppCompatActivity {
         TextView tvVegDesc = findViewById(R.id.tvVegDesc);
         TextView tvDuration = findViewById(R.id.tvDuration);
 
-        // Configurar contenido para el martes (ejemplo: día de descanso activo o cardio)
         tvTitle.setText("Martes · Active Rest");
         tvSubtitle.setText("Cardio · Movilidad · Core · 40-50 min");
         tvWarmupTitle.setText("Calentamiento (5 min)");

@@ -1,6 +1,7 @@
 package com.unidad.gymapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -16,8 +17,11 @@ public class WednesdayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_wednesday);
 
         btnBackToMenu = findViewById(R.id.btnBackToMenu);
-
         btnBackToMenu.setOnClickListener(v -> navigateHome());
+
+        // ✅ Registrar progreso del miércoles como completado
+        SharedPreferences progressPrefs = getSharedPreferences("ProgressPrefs", MODE_PRIVATE);
+        progressPrefs.edit().putBoolean("miércoles_completado", true).apply();
     }
 
     private void navigateHome() {

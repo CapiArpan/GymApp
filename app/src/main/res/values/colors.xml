@@ -17,4 +17,6 @@
     <color name="md_on_primary">#FFFFFF</color>
     <color name="ripple_color">#33FFFFFF</color>  <!-- blanco con 20% opacidad -->
     <color name="md_secondary_variant">#005662</color>
+    <color name="radio_button_tint">#FF6B35</color>
+    <color name="primary_text">#212121</color>
 </resources>

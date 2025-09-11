@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">GymApp</string>
+
+    <string-array name="opciones_objetivo">
+        <item>Selecciona tu objetivo</item>
+        <item>Perder peso</item>
+        <item>Ganar masa muscular</item>
+        <item>Mejorar condición física</item>
+        <item>Preparación para competencia</item>
+        <item>Recuperación de lesión</item>
+    </string-array>
+
+    <string-array name="entrenadores">
+        <item>Selecciona un entrenador</item>
+        <item>Carlos Rodríguez</item>
+        <item>Ana Martínez</item>
+        <item>Miguel Sánchez</item>
+        <item>Laura García</item>
+    </string-array>
+
+    <string-array name="telefonos_entrenadores">
+        <item>-</item>
+        <item>+34 600 111 222</item>
+        <item>+34 600 333 444</item>
+        <item>+34 600 555 666</item>
+        <item>+34 600 777 888</item>
+    </string-array>
 </resources>
