@@ -94,13 +94,62 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp">
-                        <com.airbnb.lottie.LottieAnimationView
-                            android:id="@+id/lottieShoulders"
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            app:lottie_rawRes="@raw/rest_day_animation"
-                            app:lottie_autoPlay="true"
-                            app:lottie_loop="true"/>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <com.airbnb.lottie.LottieAnimationView
+                                android:id="@+id/lottieShoulders"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                app:lottie_rawRes="@raw/rest_day_animation"
+                                app:lottie_autoPlay="true"
+                                app:lottie_loop="true" />
+
+                            <VideoView
+                                android:id="@+id/videoShoulders"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:visibility="gone" />
+
+
+                            <LinearLayout
+                                android:id="@+id/shouldersButtonGroup"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="4dp"
+                                android:gravity="center_horizontal"
+                                android:weightSum="2">
+
+                                <Button
+                                    android:id="@+id/btnDeleteShoulders"
+                                    android:layout_width="0dp"
+                                    android:layout_height="32dp"
+                                    android:layout_weight="1"
+                                    android:text="🗑️"
+                                    android:textSize="12sp"
+                                    android:padding="4dp"
+                                    android:layout_marginEnd="4dp"
+                                    android:backgroundTint="@android:color/holo_red_light"
+                                    android:textColor="@android:color/white" />
+
+                                <Button
+                                    android:id="@+id/btnRecordShoulders"
+                                    android:layout_width="0dp"
+                                    android:layout_height="32dp"
+                                    android:layout_weight="1"
+                                    android:text="🎥"
+                                    android:textSize="12sp"
+                                    android:padding="4dp"
+                                    android:backgroundTint="@android:color/holo_blue_light"
+                                    android:textColor="@android:color/white" />
+                            </LinearLayout>
+
+                        </LinearLayout>
 
                         <LinearLayout
                             android:orientation="vertical"
@@ -108,25 +157,28 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginStart="8dp">
+
                             <TextView
-                                android:text="1. Hombros"
+                                android:text="Hombros"
                                 android:textStyle="bold"
                                 android:textSize="16sp"
                                 android:textColor="#212121"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
+                                android:layout_height="wrap_content" />
+
                             <EditText
                                 android:id="@+id/etShoulders"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="Escribe o edita los ejercicios..."
+                                android:hint="Ejercicios de hombros..."
                                 android:inputType="textMultiLine"
                                 android:lines="3"
                                 android:gravity="top"
                                 android:background="@android:drawable/edit_text"
-                                android:padding="8dp"/>
+                                android:padding="8dp" />
                         </LinearLayout>
                     </LinearLayout>
+
 
                     <!-- Ejercicio: Tríceps -->
                     <LinearLayout
@@ -134,13 +186,62 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp">
-                        <com.airbnb.lottie.LottieAnimationView
-                            android:id="@+id/lottieTriceps"
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            app:lottie_rawRes="@raw/rest_day_animation"
-                            app:lottie_autoPlay="true"
-                            app:lottie_loop="true"/>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <com.airbnb.lottie.LottieAnimationView
+                                android:id="@+id/lottieTriceps"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                app:lottie_rawRes="@raw/rest_day_animation"
+                                app:lottie_autoPlay="true"
+                                app:lottie_loop="true" />
+
+                            <VideoView
+                                android:id="@+id/videoTriceps"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:visibility="gone" />
+
+
+                            <LinearLayout
+                                android:id="@+id/tricepsButtonGroup"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="4dp"
+                                android:gravity="center_horizontal"
+                                android:weightSum="2">
+
+                                <Button
+                                    android:id="@+id/btnDeleteTriceps"
+                                    android:layout_width="0dp"
+                                    android:layout_height="32dp"
+                                    android:layout_weight="1"
+                                    android:text="🗑️"
+                                    android:textSize="12sp"
+                                    android:padding="4dp"
+                                    android:layout_marginEnd="4dp"
+                                    android:backgroundTint="@android:color/holo_red_light"
+                                    android:textColor="@android:color/white" />
+
+                                <Button
+                                    android:id="@+id/btnRecordTriceps"
+                                    android:layout_width="0dp"
+                                    android:layout_height="32dp"
+                                    android:layout_weight="1"
+                                    android:text="🎥"
+                                    android:textSize="12sp"
+                                    android:padding="4dp"
+                                    android:backgroundTint="@android:color/holo_blue_light"
+                                    android:textColor="@android:color/white" />
+                            </LinearLayout>
+
+                        </LinearLayout>
 
                         <LinearLayout
                             android:orientation="vertical"
@@ -148,23 +249,25 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginStart="8dp">
+
                             <TextView
-                                android:text="2. Tríceps"
+                                android:text="Tríceps"
                                 android:textStyle="bold"
                                 android:textSize="16sp"
                                 android:textColor="#212121"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
+                                android:layout_height="wrap_content" />
+
                             <EditText
                                 android:id="@+id/etTriceps"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="Escribe o edita los ejercicios..."
+                                android:hint="Ejercicios de tríceps..."
                                 android:inputType="textMultiLine"
                                 android:lines="3"
                                 android:gravity="top"
                                 android:background="@android:drawable/edit_text"
-                                android:padding="8dp"/>
+                                android:padding="8dp" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -174,13 +277,62 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp">
-                        <com.airbnb.lottie.LottieAnimationView
-                            android:id="@+id/lottieCore"
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            app:lottie_rawRes="@raw/rest_day_animation"
-                            app:lottie_autoPlay="true"
-                            app:lottie_loop="true"/>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <com.airbnb.lottie.LottieAnimationView
+                                android:id="@+id/lottieCore"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                app:lottie_rawRes="@raw/rest_day_animation"
+                                app:lottie_autoPlay="true"
+                                app:lottie_loop="true" />
+
+                            <VideoView
+                                android:id="@+id/videoCore"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:visibility="gone" />
+
+
+                            <LinearLayout
+                                android:id="@+id/coreButtonGroup"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="4dp"
+                                android:gravity="center_horizontal"
+                                android:weightSum="2">
+
+                                <Button
+                                    android:id="@+id/btnDeleteCore"
+                                    android:layout_width="0dp"
+                                    android:layout_height="32dp"
+                                    android:layout_weight="1"
+                                    android:text="🗑️"
+                                    android:textSize="12sp"
+                                    android:padding="4dp"
+                                    android:layout_marginEnd="4dp"
+                                    android:backgroundTint="@android:color/holo_red_light"
+                                    android:textColor="@android:color/white" />
+
+                                <Button
+                                    android:id="@+id/btnRecordCore"
+                                    android:layout_width="0dp"
+                                    android:layout_height="32dp"
+                                    android:layout_weight="1"
+                                    android:text="🎥"
+                                    android:textSize="12sp"
+                                    android:padding="4dp"
+                                    android:backgroundTint="@android:color/holo_blue_light"
+                                    android:textColor="@android:color/white" />
+                            </LinearLayout>
+
+                        </LinearLayout>
 
                         <LinearLayout
                             android:orientation="vertical"
@@ -188,23 +340,25 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginStart="8dp">
+
                             <TextView
-                                android:text="3. Core"
+                                android:text="Core"
                                 android:textStyle="bold"
                                 android:textSize="16sp"
                                 android:textColor="#212121"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
+                                android:layout_height="wrap_content" />
+
                             <EditText
                                 android:id="@+id/etCore"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="Escribe o edita los ejercicios..."
+                                android:hint="Ejercicios de core..."
                                 android:inputType="textMultiLine"
                                 android:lines="3"
                                 android:gravity="top"
                                 android:background="@android:drawable/edit_text"
-                                android:padding="8dp"/>
+                                android:padding="8dp" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
