@@ -10,11 +10,16 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 public class FridayActivity extends AppCompatActivity {
 
     private EditText etWarmup, etShoulders, etTriceps, etCore, etNutrition, etTiming;
     private Button btnBackHome;
     private SharedPreferences prefs;
+
+    private LottieAnimationView lottieShoulders, lottieTriceps, lottieCore;
+    private LottieZoomHelper zoomHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +31,9 @@ public class FridayActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        // Inicializar helper de zoom
+        zoomHelper = new LottieZoomHelper(this, R.id.zoomOverlay);
+
         // Referencias a los campos
         etWarmup    = findViewById(R.id.etWarmup);
         etShoulders = findViewById(R.id.etShoulders);
@@ -34,6 +42,16 @@ public class FridayActivity extends AppCompatActivity {
         etNutrition = findViewById(R.id.etNutrition);
         etTiming    = findViewById(R.id.etTiming);
         btnBackHome = findViewById(R.id.btnBackHome);
+
+        // Referencias a los Lotties
+        lottieShoulders = findViewById(R.id.lottieShoulders);
+        lottieTriceps   = findViewById(R.id.lottieTriceps);
+        lottieCore      = findViewById(R.id.lottieCore);
+
+        // Activar zoom modular en cada Lottie
+        lottieShoulders.setOnClickListener(v -> zoomHelper.showZoom(R.raw.rest_day_animation));
+        lottieTriceps.setOnClickListener(v -> zoomHelper.showZoom(R.raw.rest_day_animation));
+        lottieCore.setOnClickListener(v -> zoomHelper.showZoom(R.raw.rest_day_animation));
 
         // SharedPreferences para contenido editable
         prefs = getSharedPreferences("FridayPrefs", MODE_PRIVATE);
@@ -46,7 +64,7 @@ public class FridayActivity extends AppCompatActivity {
         etNutrition.setText(prefs.getString("nutrition", getDefaultNutrition()));
         etTiming.setText(prefs.getString("timing", getDefaultTiming()));
 
-        // ✅ Registrar progreso del viernes como completado
+        // Registrar progreso del viernes como completado
         SharedPreferences progressPrefs = getSharedPreferences("ProgressPrefs", MODE_PRIVATE);
         progressPrefs.edit().putBoolean("viernes_completado", true).apply();
 

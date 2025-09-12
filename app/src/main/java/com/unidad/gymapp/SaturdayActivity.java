@@ -10,11 +10,16 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 public class SaturdayActivity extends AppCompatActivity {
 
     private EditText etWarmup, etHip, etCalf, etQuad, etNutrition, etTiming;
     private Button btnBackHome;
     private SharedPreferences prefs;
+
+    private LottieAnimationView lottieHip, lottieCalf, lottieQuad;
+    private LottieZoomHelper zoomHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +31,9 @@ public class SaturdayActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        // Inicializar helper de zoom
+        zoomHelper = new LottieZoomHelper(this, R.id.zoomOverlay);
+
         // Referencias a los campos
         etWarmup    = findViewById(R.id.etWarmup);
         etHip       = findViewById(R.id.etHip);
@@ -34,6 +42,16 @@ public class SaturdayActivity extends AppCompatActivity {
         etNutrition = findViewById(R.id.etNutrition);
         etTiming    = findViewById(R.id.etTiming);
         btnBackHome = findViewById(R.id.btnBackHome);
+
+        // Referencias a los Lotties
+        lottieHip  = findViewById(R.id.lottieHip);
+        lottieCalf = findViewById(R.id.lottieCalf);
+        lottieQuad = findViewById(R.id.lottieQuad);
+
+        // Activar zoom modular en cada Lottie
+        lottieHip.setOnClickListener(v -> zoomHelper.showZoom(R.raw.rest_day_animation));
+        lottieCalf.setOnClickListener(v -> zoomHelper.showZoom(R.raw.rest_day_animation));
+        lottieQuad.setOnClickListener(v -> zoomHelper.showZoom(R.raw.rest_day_animation));
 
         // SharedPreferences para contenido editable
         prefs = getSharedPreferences("SaturdayPrefs", MODE_PRIVATE);
@@ -46,9 +64,9 @@ public class SaturdayActivity extends AppCompatActivity {
         etNutrition.setText(prefs.getString("nutrition", getDefaultNutrition()));
         etTiming.setText(prefs.getString("timing", getDefaultTiming()));
 
-        // ✅ Registrar progreso del sábado como completado
+        // Registrar progreso del sábado como completado
         SharedPreferences progressPrefs = getSharedPreferences("ProgressPrefs", MODE_PRIVATE);
-        progressPrefs.edit().putBoolean("sábado_completado", true).apply();
+        progressPrefs.edit().putBoolean("sabado_completado", true).apply();
 
         // Guardar contenido editable y volver al Home
         btnBackHome.setOnClickListener(v -> {
@@ -81,28 +99,28 @@ public class SaturdayActivity extends AppCompatActivity {
 
     // Valores por defecto
     private String getDefaultWarmup() {
-        return "∙ Trote en máquina + 20 jumping jacks";
+        return "∙ Sentadillas con peso corporal – 2 rondas\n20 jumping jacks + 10 lunges por pierna";
     }
 
     private String getDefaultHip() {
-        return "Abducción en máquina\n4×8–10 · Desc 90s";
+        return "Elevaciones de pierna + estiramiento dinámico\n3×15 · Desc 45s";
     }
 
     private String getDefaultCalf() {
-        return "Elevación de talones\n3–4×10–12 · Desc 60–90s";
+        return "Elevaciones de talón en escalón\n4×20 · Desc 30s";
     }
 
     private String getDefaultQuad() {
-        return "Extensión de cuádriceps\n4×8 · Desc 45s";
+        return "Sentadilla frontal con barra\n4×8 · Desc 60s";
     }
 
     private String getDefaultNutrition() {
-        return "• Económica: Pan integral + huevo + leche\n" +
-                "• Proteína: Pavo + arroz + entrenar\n" +
-                "• Vegetariana: Tofu + ensalada fresca + quinoa";
+        return "• Económica: Avena + plátano + leche\n" +
+                "• Proteína: Pollo + batata + ensalada\n" +
+                "• Vegetariana: Lentejas + arroz integral + palta";
     }
 
     private String getDefaultTiming() {
-        return "Duración: 50–65 min\nDescanso entre series: 45–90 s";
+        return "Duración: 55–70 min\nDescanso entre series: 45–90 s";
     }
 }

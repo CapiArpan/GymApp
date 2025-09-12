@@ -95,11 +95,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp">
                         <com.airbnb.lottie.LottieAnimationView
+                            android:id="@+id/lottieHip"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             app:lottie_rawRes="@raw/rest_day_animation"
                             app:lottie_autoPlay="true"
                             app:lottie_loop="true"/>
+
                         <LinearLayout
                             android:orientation="vertical"
                             android:layout_width="0dp"
@@ -133,11 +135,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp">
                         <com.airbnb.lottie.LottieAnimationView
+                            android:id="@+id/lottieCalf"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             app:lottie_rawRes="@raw/rest_day_animation"
                             app:lottie_autoPlay="true"
                             app:lottie_loop="true"/>
+
                         <LinearLayout
                             android:orientation="vertical"
                             android:layout_width="0dp"
@@ -171,11 +175,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp">
                         <com.airbnb.lottie.LottieAnimationView
+                            android:id="@+id/lottieQuad"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             app:lottie_rawRes="@raw/rest_day_animation"
                             app:lottie_autoPlay="true"
                             app:lottie_loop="true"/>
+
                         <LinearLayout
                             android:orientation="vertical"
                             android:layout_width="0dp"
@@ -276,4 +282,14 @@
                 android:textColor="#FFFFFF"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <!-- Zoom -->
+    <FrameLayout
+        android:id="@+id/zoomOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="#AA000000" />
+
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
