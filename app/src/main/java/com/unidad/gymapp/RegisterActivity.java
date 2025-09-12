@@ -1,6 +1,7 @@
 package com.unidad.gymapp;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,7 +12,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
@@ -23,8 +26,9 @@ public class RegisterActivity extends AppCompatActivity {
     private TextInputEditText etNombre, etCorreo, etTelefono, etFechaNacimiento, etPeso, etAltura, etContrasena, etConfirmarContrasena;
     private RadioGroup rgGenero;
     private Spinner spObjetivo, spEntrenador;
-    private TextView tvTelefonoEntrenador;
+    private TextView tvTelefonoEntrenador, tvBackToLogin;
     private MaterialButton btnRegistrar;
+    private Toolbar toolbar;
 
     private String[] telefonosEntrenadores;
 
@@ -32,6 +36,13 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        // CONFIGURAR TOOLBAR (ESTO FALTABA)
+        toolbar = findViewById(R.id.toolbarRegister);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Registro de Usuario");
 
         // Bind views
         etNombre = findViewById(R.id.etNombre);
@@ -48,6 +59,9 @@ public class RegisterActivity extends AppCompatActivity {
         spEntrenador = findViewById(R.id.spEntrenador);
         tvTelefonoEntrenador = findViewById(R.id.tvTelefonoEntrenador);
         btnRegistrar = findViewById(R.id.btnRegistrar);
+
+        // TextView para regresar al login
+        tvBackToLogin = findViewById(R.id.tvBackToLogin);
 
         // Cargar adapters (desde arrays en strings.xml)
         ArrayAdapter<CharSequence> adapterObjetivo =
@@ -145,7 +159,49 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(this, resumen, Toast.LENGTH_LONG).show();
 
             // Aquí puedes crear el objeto Usuario y guardarlo en BD / enviar al backend
+
+            // Después de registrar, volver al login
+            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+            finish();
         });
+
+        // FUNCIONALIDAD PARA REGRESAR AL LOGIN - TextView "Inicia sesión"
+        tvBackToLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Regresar a LoginActivity
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        // MANEJO MODERNO DEL BOTÓN DE RETROCESO
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Regresar al login al presionar back
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                finish();
+            }
+        };
+        getOnBackPressedDispatcher().addCallback(this, callback);
+    }
+
+    // ESTE MÉTODO FALTABA PARA LA TOOLBAR
+    @Override
+    public boolean onSupportNavigateUp() {
+        // Regresar al login cuando se presiona el botón de la toolbar
+        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+        finish();
+        return true;
     }
 
     private String getText(TextInputEditText et) {
