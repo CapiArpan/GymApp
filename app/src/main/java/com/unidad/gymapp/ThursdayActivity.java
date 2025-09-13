@@ -10,7 +10,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class thursdayActivity extends AppCompatActivity {
+public class ThursdayActivity extends AppCompatActivity {
 
     private EditText etWarmup, etHip, etCalf, etQuad, etNutrition, etTiming;
     private Button btnBackHome;
@@ -61,7 +61,7 @@ public class thursdayActivity extends AppCompatActivity {
                     .putString("timing", etTiming.getText().toString())
                     .apply();
 
-            Intent intent = new Intent(thursdayActivity.this, HomeActivity.class);
+            Intent intent = new Intent(ThursdayActivity.this, HomeActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
             finish();
@@ -99,8 +99,8 @@ public class thursdayActivity extends AppCompatActivity {
     }
 
     private String getDefaultNutrition() {
-        return "• Económica: Pan integral + huevo duro + leche\n" +
-                "• Proteína: Pavo + arroz + batido post entreno\n" +
+        return "• Económica: Pan integral + huevo duro + leche" +
+                "• Proteína: Pavo + arroz + batido post entreno" +
                 "• Vegetariana: Tofu + ensalada fresca + avena";
     }
 
