@@ -1,258 +1,442 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAF5FB"
-    android:padding="16dp"
-    android:fillViewport="true">
+    android:background="@drawable/bg_sunday_gradient">
 
-    <LinearLayout
+    <!-- AppBar -->
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary">
 
-        <!-- Título principal -->
-        <TextView
-            android:id="@+id/tvTitle"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarTuesday"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Martes · Active Rest"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textColor="#000000"
-            android:layout_marginBottom="4dp"/>
+            android:layout_height="match_parent"
+            app:title="Martes – Lower Body"
+            app:titleTextColor="@android:color/white"/>
+    </com.google.android.material.appbar.AppBarLayout>
 
-        <!-- Subtítulo -->
-        <TextView
-            android:id="@+id/tvSubtitle"
+    <!-- Contenido Scrollable -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="24dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Cardio · Movilidad · Core · 40-50 min"
-            android:textSize="16sp"
-            android:gravity="center"
-            android:textColor="#000000"
-            android:layout_marginBottom="16dp"/>
+            android:layout_height="wrap_content">
 
-        <!-- Calentamiento -->
-        <TextView
-            android:id="@+id/tvWarmupTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Calentamiento (5 min)"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:layout_marginBottom="4dp"/>
+            <!-- Warm-up Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@android:color/white">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="Warm-up (5 min)"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#212121"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <EditText
+                        android:id="@+id/etWarmup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Escribe o edita los ejercicios..."
+                        android:inputType="textMultiLine"
+                        android:lines="4"
+                        android:gravity="top"
+                        android:background="@android:drawable/edit_text"
+                        android:padding="8dp"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-        <TextView
-            android:id="@+id/tvWarmupDesc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Caminata rápida + movilidad articular"
-            android:textSize="14sp"
-            android:textColor="#000000"
-            android:layout_marginBottom="16dp"/>
+            <!-- Ejercicios Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@android:color/white">
 
-        <!-- Ejercicio 1: Cardio -->
-        <TextView
-            android:id="@+id/tvExercise1Title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Cardio"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:layout_marginBottom="4dp"/>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tvExercise1Name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Bicicleta estática o elíptica"
-            android:textSize="14sp"
-            android:textColor="#000000"
-            android:layout_marginBottom="2dp"/>
+                    <TextView
+                        android:text="Ejercicios"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#212121"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
 
-        <TextView
-            android:id="@+id/tvExercise1Sets"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="30 min · Intensidad moderada"
-            android:textSize="12sp"
-            android:textColor="#666666"
-            android:layout_marginBottom="16dp"/>
+                    <!-- Piernas -->
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp">
 
-        <!-- Ejercicio 2: Movilidad -->
-        <TextView
-            android:id="@+id/tvExercise2Title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Movilidad"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:layout_marginBottom="4dp"/>
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
 
-        <TextView
-            android:id="@+id/tvExercise2Name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Estiramientos dinámicos"
-            android:textSize="14sp"
-            android:textColor="#000000"
-            android:layout_marginBottom="2dp"/>
+                            <com.airbnb.lottie.LottieAnimationView
+                                android:id="@+id/lottieLegs"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                app:lottie_rawRes="@raw/rest_day_animation"
+                                app:lottie_autoPlay="true"
+                                app:lottie_loop="true" />
 
-        <TextView
-            android:id="@+id/tvExercise2Sets"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="2 series · 10 repeticiones cada ejercicio"
-            android:textSize="12sp"
-            android:textColor="#666666"
-            android:layout_marginBottom="16dp"/>
+                            <VideoView
+                                android:id="@+id/videoLegs"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:visibility="gone" />
 
-        <!-- Ejercicio 3: Core -->
-        <TextView
-            android:id="@+id/tvExercise3Title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Core"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:layout_marginBottom="4dp"/>
+                            <LinearLayout
+                                android:id="@+id/legsButtonGroup"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="4dp"
+                                android:gravity="center_horizontal"
+                                android:weightSum="2">
 
-        <TextView
-            android:id="@+id/tvExercise3Name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Plancha · Russian twists · Leg raises"
-            android:textSize="14sp"
-            android:textColor="#000000"
-            android:layout_marginBottom="2dp"/>
+                                <Button
+                                    android:id="@+id/btnDeleteLegs"
+                                    android:layout_width="0dp"
+                                    android:layout_height="32dp"
+                                    android:layout_weight="1"
+                                    android:text="🗑️"
+                                    android:textSize="12sp"
+                                    android:padding="4dp"
+                                    android:layout_marginEnd="4dp"
+                                    android:backgroundTint="@android:color/holo_red_light"
+                                    android:textColor="@android:color/white" />
 
-        <TextView
-            android:id="@+id/tvExercise3Sets"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="3×30s · 3×15 · 3×12 · Desc 30s"
-            android:textSize="12sp"
-            android:textColor="#666666"
-            android:layout_marginBottom="16dp"/>
+                                <Button
+                                    android:id="@+id/btnRecordLegs"
+                                    android:layout_width="0dp"
+                                    android:layout_height="32dp"
+                                    android:layout_weight="1"
+                                    android:text="🎥"
+                                    android:textSize="12sp"
+                                    android:padding="4dp"
+                                    android:backgroundTint="@android:color/holo_blue_light"
+                                    android:textColor="@android:color/white" />
+                            </LinearLayout>
 
-        <!-- Extras -->
-        <TextView
-            android:id="@+id/tvExtrasTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Extras"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:layout_marginBottom="4dp"/>
+                        </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvExtrasDesc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Movilidad de hombros 2×10 · Respiración diafragmática"
-            android:textSize="14sp"
-            android:textColor="#000000"
-            android:layout_marginBottom="16dp"/>
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp">
 
-        <!-- Alimentación Recomendada -->
-        <TextView
-            android:id="@+id/tvNutritionTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Alimentacion Recomendada"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:gravity="center"
-            android:layout_marginBottom="8dp"/>
+                            <TextView
+                                android:text="Piernas"
+                                android:textStyle="bold"
+                                android:textSize="16sp"
+                                android:textColor="#212121"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
 
-        <!-- Económica -->
-        <TextView
-            android:id="@+id/tvEcoTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Económica"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:layout_marginBottom="2dp"/>
+                            <EditText
+                                android:id="@+id/etLegs"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Ejercicios de piernas..."
+                                android:inputType="textMultiLine"
+                                android:lines="3"
+                                android:gravity="top"
+                                android:background="@android:drawable/edit_text"
+                                android:padding="8dp" />
+                        </LinearLayout>
+                    </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvEcoDesc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Avena con plátano · huevo revuelto · leche"
-            android:textSize="12sp"
-            android:textColor="#000000"
-            android:layout_marginBottom="8dp"/>
+                    <!-- Glúteos -->
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp">
 
-        <!-- Muscle -->
-        <TextView
-            android:id="@+id/tvMuscleTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Muscle"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:layout_marginBottom="2dp"/>
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
 
-        <TextView
-            android:id="@+id/tvMuscleDesc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Pescado · camote · batido de proteínas"
-            android:textSize="12sp"
-            android:textColor="#000000"
-            android:layout_marginBottom="8dp"/>
+                            <com.airbnb.lottie.LottieAnimationView
+                                android:id="@+id/lottieGlutes"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                app:lottie_rawRes="@raw/rest_day_animation"
+                                app:lottie_autoPlay="true"
+                                app:lottie_loop="true" />
 
-        <!-- Vegetariana -->
-        <TextView
-            android:id="@+id/tvVegTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Vegetariana"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:layout_marginBottom="2dp"/>
+                            <VideoView
+                                android:id="@+id/videoGlutes"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/tvVegDesc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Garbanzos · quinoa · ensalada de vegetales"
-            android:textSize="12sp"
-            android:textColor="#000000"
-            android:layout_marginBottom="16dp"/>
+                            <LinearLayout
+                                android:id="@+id/glutesButtonGroup"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="4dp"
+                                android:gravity="center_horizontal"
+                                android:weightSum="2">
 
-        <!-- Duración -->
-        <TextView
-            android:id="@+id/tvDuration"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Duración ≈ 40-50 min\nDescansos 30-60s"
-            android:textSize="12sp"
-            android:textColor="#666666"
-            android:gravity="center"
-            android:layout_marginBottom="16dp"/>
+                                <Button
+                                    android:id="@+id/btnDeleteGlutes"
+                                    android:layout_width="0dp"
+                                    android:layout_height="32dp"
+                                    android:layout_weight="1"
+                                    android:text="🗑️"
+                                    android:textSize="12sp"
+                                    android:padding="4dp"
+                                    android:layout_marginEnd="4dp"
+                                    android:backgroundTint="@android:color/holo_red_light"
+                                    android:textColor="@android:color/white" />
 
-        <!-- Botón Atrás -->
-        <Button
-            android:id="@+id/btnBackToMenu"
-            android:layout_width="match_parent"
-            android:layout_height="59dp"
-            android:backgroundTint="#9C27B0"
-            android:text="Atrás"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"/>
+                                <Button
+                                    android:id="@+id/btnRecordGlutes"
+                                    android:layout_width="0dp"
+                                    android:layout_height="32dp"
+                                    android:layout_weight="1"
+                                    android:text="🎥"
+                                    android:textSize="12sp"
+                                    android:padding="4dp"
+                                    android:backgroundTint="@android:color/holo_blue_light"
+                                    android:textColor="@android:color/white" />
+                            </LinearLayout>
 
-    </LinearLayout>
-</ScrollView>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp">
+
+                            <TextView
+                                android:text="Glúteos"
+                                android:textStyle="bold"
+                                android:textSize="16sp"
+                                android:textColor="#212121"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                            <EditText
+                                android:id="@+id/etGlutes"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Ejercicios de glúteos..."
+                                android:inputType="textMultiLine"
+                                android:lines="3"
+                                android:gravity="top"
+                                android:background="@android:drawable/edit_text"
+                                android:padding="8dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Cardio -->
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+                            <com.airbnb.lottie.LottieAnimationView
+                                android:id="@+id/lottieCardio"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                app:lottie_rawRes="@raw/rest_day_animation"
+                                app:lottie_autoPlay="true"
+                                app:lottie_loop="true" />
+
+                            <VideoView
+                                android:id="@+id/videoCardio"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:visibility="gone" />
+
+                            <LinearLayout
+                                android:id="@+id/cardioButtonGroup"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="4dp"
+                                android:gravity="center_horizontal"
+                                android:weightSum="2">
+
+                                <Button
+                                    android:id="@+id/btnDeleteCardio"
+                                    android:layout_width="0dp"
+                                    android:layout_height="32dp"
+                                    android:layout_weight="1"
+                                    android:text="🗑️"
+                                    android:textSize="12sp"
+                                    android:padding="4dp"
+                                    android:layout_marginEnd="4dp"
+                                    android:backgroundTint="@android:color/holo_red_light"
+                                    android:textColor="@android:color/white" />
+
+                                <Button
+                                    android:id="@+id/btnRecordCardio"
+                                    android:layout_width="0dp"
+                                    android:layout_height="32dp"
+                                    android:layout_weight="1"
+                                    android:text="🎥"
+                                    android:textSize="12sp"
+                                    android:padding="4dp"
+                                    android:backgroundTint="@android:color/holo_blue_light"
+                                    android:textColor="@android:color/white" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp">
+
+                            <TextView
+                                android:text="Cardio"
+                                android:textStyle="bold"
+                                android:textSize="16sp"
+                                android:textColor="#212121"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                            <EditText
+                                android:id="@+id/etCardio"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Ejercicios de cardio..."
+                                android:inputType="textMultiLine"
+                                android:lines="3"
+                                android:gravity="top"
+                                android:background="@android:drawable/edit_text"
+                                android:padding="8dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Nutrición y Timing Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@android:color/white">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="Nutrición recomendada"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#212121"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <EditText
+                        android:id="@+id/etNutrition"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Escribe o edita los consejos..."
+                        android:inputType="textMultiLine"
+                        android:lines="4"
+                        android:gravity="top"
+                        android:background="@android:drawable/edit_text"
+                        android:padding="8dp"
+                        android:layout_marginTop="8dp"/>
+
+                    <TextView
+                        android:text="Timing"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#212121"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"/>
+
+                    <EditText
+                        android:id="@+id/etTiming"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Duración entrenamiento..."
+                        android:inputType="textMultiLine"
+                        android:lines="3"
+                        android:gravity="top"
+                        android:background="@android:drawable/edit_text"
+                        android:padding="8dp"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Botón para volver al Home -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBackHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="#212121"
+                android:text="Atras"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Zoom -->
+    <FrameLayout
+        android:id="@+id/zoomOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="#AA000000" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
