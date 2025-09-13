@@ -99,8 +99,8 @@ public class ThursdayActivity extends AppCompatActivity {
     }
 
     private String getDefaultNutrition() {
-        return "• Económica: Pan integral + huevo duro + leche" +
-                "• Proteína: Pavo + arroz + batido post entreno" +
+        return "• Económica: Pan integral + huevo duro + leche\n" +
+                "• Proteína: Pavo + arroz + batido post entreno\n" +
                 "• Vegetariana: Tofu + ensalada fresca + avena";
     }
 
