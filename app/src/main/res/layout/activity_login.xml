@@ -51,6 +51,15 @@
             android:layout_height="wrap_content"
             android:text="Ingresar"
             android:layout_marginTop="16dp" />
+        <TextView
+            android:id="@+id/tvGoRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿No tienes cuenta? Regístrate"
+            android:textColor="@android:color/holo_blue_light"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp" />
+
 
     </LinearLayout>
 </ScrollView>
